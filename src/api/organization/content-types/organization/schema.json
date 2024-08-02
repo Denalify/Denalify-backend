@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "organizations",
+  "info": {
+    "singularName": "organization",
+    "pluralName": "organizations",
+    "displayName": "organization",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "pojects": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::poject.poject",
+      "mappedBy": "organization"
+    },
+    "users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "organizations"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "admin_users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "admin_in_organizations"
+    },
+    "plan": {
+      "type": "enumeration",
+      "enum": [
+        "free",
+        "small",
+        "big"
+      ],
+      "default": "free",
+      "private": true
+    },
+    "inviteCode": {
+      "type": "uid",
+      "required": true
+    }
+  }
+}

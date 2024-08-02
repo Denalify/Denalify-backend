@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_task_subtasks",
+  "info": {
+    "displayName": "subtask",
+    "icon": "check"
+  },
+  "options": {},
+  "attributes": {
+    "done": {
+      "type": "boolean",
+      "default": false
+    },
+    "content": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
